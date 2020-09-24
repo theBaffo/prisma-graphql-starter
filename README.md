@@ -9,7 +9,7 @@ This example shows how to implement a **GraphQL server with an email-password-ba
 Clone this repository:
 
 ```
-REPOSITORY_URL
+git clone git@github.com:theBaffo/prisma-graphql-starter.git
 ```
 
 Install npm dependencies:
