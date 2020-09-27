@@ -13,7 +13,12 @@ const permissions = shield({
     me: rules.isAuthenticatedUser,
   },
   Mutation: {
-    
+    createOnePost: rules.isAuthenticatedUser,
+    updateOnePost: rules.isAuthenticatedUser,
+    deleteOnePost: rules.isAuthenticatedUser,
+    createOneProfile: rules.isAuthenticatedUser,
+    updateOneProfile: rules.isAuthenticatedUser,
+    deleteOneProfile: rules.isAuthenticatedUser,
   },
 }, {
   debug: true,

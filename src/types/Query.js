@@ -16,6 +16,20 @@ const Query = queryType({
       },
     })
 
+    t.crud.post()
+    t.crud.posts({
+      filtering: true,
+      ordering: true,
+      pagination: true
+    })
+
+    t.crud.profile()
+    t.crud.profiles({
+      filtering: true,
+      ordering: true,
+      pagination: true
+    })
+    
     t.crud.user()
     t.crud.users({
       filtering: true,

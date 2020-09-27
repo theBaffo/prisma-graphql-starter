@@ -53,6 +53,30 @@ const Mutation = mutationType({
         }
       },
     })
+
+    t.crud.createOnePost({
+      computedInputs: {
+        author: ({ args, ctx, info }) => ({
+          connect: {
+            id: Number(getUserId(ctx)),
+          },
+        }),
+      },
+     })
+     t.crud.updateOnePost()
+     t.crud.deleteOnePost()
+
+    t.crud.createOneProfile({
+      computedInputs: {
+        user: ({ args, ctx, info }) => ({
+          connect: {
+            id: Number(getUserId(ctx)),
+          },
+        }),
+      },
+     })
+     t.crud.updateOneProfile()
+     t.crud.deleteOneProfile()
   },
 })
 
