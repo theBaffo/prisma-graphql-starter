@@ -15,6 +15,13 @@ const Query = queryType({
         })
       },
     })
+
+    t.crud.user()
+    t.crud.users({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    })
   },
 })
 

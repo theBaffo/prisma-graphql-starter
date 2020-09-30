@@ -7,17 +7,124 @@ type AuthPayload {
   user: User!
 }
 
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
 type Mutation {
   login(email: String, password: String): AuthPayload!
   signup(email: String, name: String, password: String): AuthPayload!
 }
 
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
 type Query {
   me: User
+  user(where: UserWhereUniqueInput!): User
+  users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int, orderBy: [UserOrderByInput!], where: UserWhereInput): [User!]!
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
 }
 
 type User {
   email: String!
   id: Int!
   name: String
+}
+
+input UserOrderByInput {
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+  password: SortOrder
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  email: StringFilter
+  id: IntFilter
+  name: StringNullableFilter
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  password: StringFilter
+}
+
+input UserWhereUniqueInput {
+  email: String
+  id: Int
 }
